@@ -491,13 +491,14 @@ body.no-scroll { overflow: hidden; }
 .map { width: 100%; height: 360px; border: 0; border-radius: var(--r-lg); filter: grayscale(.3); }
 
 /* Reveal on scroll */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-.reveal.is-in { opacity: 1; transform: none; }
+/* Motion only: content stays visible even if the observer never fires */
+.reveal { transform: translateY(14px); transition: transform .6s var(--ease); }
+.reveal.is-in { transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .doorframe__pane { display: none; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { transform: none; }
 }
 
 /* Industries jump links */

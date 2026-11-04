@@ -132,7 +132,6 @@
   const num = $("[data-count]");
   if (num && !reduced && "IntersectionObserver" in window) {
     const target = +num.dataset.count;
-    num.textContent = "0";
     const io = new IntersectionObserver(([en]) => {
       if (!en.isIntersecting) return;
       io.disconnect();
